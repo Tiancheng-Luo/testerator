@@ -77,10 +77,12 @@ func (s *Setup) SpinUp() error {
 		return nil
 	}
 
+	supportDatastoreEmulator := true
 	opt := &aetest.Options{
 		AppID: "unittest",
 		StronglyConsistentDatastore: true,
 		SuppressDevAppServerLog:     true,
+		SupportDatastoreEmulator:    &supportDatastoreEmulator,
 	}
 	inst, err := aetest.NewInstance(opt)
 	if err != nil {
